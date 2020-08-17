@@ -2,8 +2,9 @@
     var bImagem = [];
     var vImagem=[];
     var vAux=[];
-    var pontos=0;tentativas=0;
+    var pontos=0,tentativas=0,cartasViradas=0;
     function construirBase(nivel){
+        cartasViradas=nivel;
         nivel = (nivel*4); //quando chamar a função terá q passar esse valor
         for(let i=0;i<nivel;i++){
             let j=Math.abs(Math.floor((Math.random()*10)+2));
@@ -34,7 +35,8 @@
 
     var temp=[];
     function clicou(foto){
-        if(temp.length<2){
+        fimJogo();
+        if((temp.length<2)&&(!fimJogo())){
             temp.push(foto);
             virar();
         }
@@ -53,6 +55,7 @@
             pontos+=100;
             ifoto1.style.visibility= "hidden";
             ifoto2.style.visibility= "hidden";
+            cartasViradas --;
             document.getElementById('pontos').value=pontos;
         }
         if(foto1!=foto2){
@@ -66,5 +69,8 @@
     }
 
     function fimJogo(){
-        
+        if((tentativas<=0)||(cartasViradas==0)){
+            window.alert("Fim de Jogo! Sua pontuação: "+pontos);
+            return true;
+        }
     }
