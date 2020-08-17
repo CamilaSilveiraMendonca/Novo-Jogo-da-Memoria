@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 Shrink-to-fit=yes">
+    <title>JogoMemória</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!--
+    Breakpoints do bootstrap
+        - xs: <576px (celulares e alguns tablets)
+        - sm: =<767px e =>576px
+        - md: =>768px e =<991px   (maioria dos computadores e notebook)
+        - lg: =>992px e =<1999px (monitores de tv)
+        - xl: => 1200px ()
+-->
+    <div  class="topo">
+        
+    </div>
+    <div class="cmenu">
+        <header>
+            <nav id="menu">
+                <ul type="disk">
+                    <li>
+                        <a href="">Novo jogo</a>
+                    </li>
+                    <li>
+                        <a href="">Mudar dificuldade</a>
+                    </li>
+                    <li>
+                        <a href="">Instruções</a>
+                    </li>
+                    <li>
+                        <a href="">Sobre</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div> 
+    <div class="game" id="1"">
+        <table id="jogoCartas">
+            <caption>Nivel de dificuldade</caption>
+            <tr>
+                <td class="topo_tab" colspan=2>Tentativas: <input type="text" size="1"></td>
+                <td class="topo_tab" colspan=2" style="text-align: right">Pontuação: <input type="text" size="2"name="" id=""></td>
+            </tr>
+            <tr>
+                <td id="00">   <!--linha 0, coluna 0-->
+                    <input type="button" class="imagem" id="0">
+                </td>                
+                <td id="01">
+                    <input type="button" class="imagem" id="1">
+                </td>
+                <td id="02">
+                    <input type="button" class="imagem" id="2">
+                </td>
+                <td id="03">
+                    <input type="button" class="imagem" id="3">
+                </td>
+            </tr>            
+            <tr>
+                <td id="10">  
+                    <input type="button" class="imagem" id="4">
+                </td>                
+                <td id="11">
+                    <input type="button" class="imagem" id="5">
+                </td>
+                <td id="12">
+                    <input type="button" class="imagem" id="6">
+                </td>                
+                <td id="13">
+                    <input type="button" class="imagem" id="7">
+                </td>
+            </tr>
+        </table>
+    </div>    
+    <button onclick="construirBase(1)" >Jogar</button>
+    <script src="../script.js"></script> 
+</body>
+</html>

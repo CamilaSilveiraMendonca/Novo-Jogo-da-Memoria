@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+body{
+    background: url('../jogo/imagens/fundo_tela.jpg');
+    font: 20px sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+.topo{
+    background: url('../jogo/imagens/fundo_topo.jpg');
+    background-size: 100% 100%;
+    padding: 0px;
+    margin:0px; 
+    width: 100%;
+    height: 120px;
+
+}
+
+.conteudo{
+    width:50%; 
+    margin: -26px auto 0px auto; 
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5); 
+    padding: 20px;
+    margin-top: 90px;
+    background-color: rgba(252, 252, 252, 0.788);
+    text-align: center;
+}
+
+div.conteudo input.principal{
+    text-decoration: none;
+    color: rgb(15, 199, 231);
+    font-family: 'Permanent Marker', cursive;
+    font-size: 28px;
+    border-style: none;
+    background: none;
+    cursor: pointer;    
+}
+
+div.conteudo input.principal:hover {
+    text-decoration: underline; 
+    text-shadow: 0px 0px 3px rgba(255, 115, 0, 0.767);
+}
+
+nav#menu{   /*é como vai ficar o menu*/
+    display: block;
+}
+
+nav#menu ul{  
+    list-style:none;
+    position: relative;
+    top: -20px;
+}
+
+nav#menu li{
+    display: inline-block;
+    background-color: #dddddd; 
+    padding:5px; 
+    margin:2px;
+    transition: background-color 1s;
+}
+
+nav#menu li:hover{ /*modifica o box de cada item*/
+	background-color: #606060;
+}
+
+nav#menu a{
+    font-size: 14px;
+    font-family: arial;
+    color: black;
+}
+
+nav#menu a:hover{   /**/
+	color:#ffffff;
+    text-decoration:underline;
+    text-shadow: none;
+}
+
+img{
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+} 
+
+input.imagem{
+    background-image: url('../jogo/imagens/carta1.png');
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: 100%;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+td{  /*onde fica cada carta*/
+    width: 100px;
+    height: 100px;            
+    padding: 8px 10px;    
+} 
+
+td.topo_tab{  /*onde será mostrada a quantidade de tentativas e a pontuação*/
+    height: 10px;       
+    font-size: 14px; 
+} 
+
+
+div.game{ /*div onde fica o tabuleiro*/
+    width:90%; 
+    margin: -26px auto 0px auto; 
+    padding: 10px;
+    margin-top: 20px;
+}
+
+table#jogoCartas{  /*tabuleiro*/
+    margin: 0px auto 0px auto;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5); 
+    background-color: rgba(245, 245, 245, 0.884);
+}
+
+
+
+
