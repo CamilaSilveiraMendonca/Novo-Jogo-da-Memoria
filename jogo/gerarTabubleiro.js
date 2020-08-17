@@ -4,7 +4,6 @@
     var pontos=0,tentativas=0,cartasViradas=0;
 
     function construirBase(nivel){
-        cartasViradas=nivel;    //é usada na função fimJogo
         nivel = (nivel*4); //quando chamar a função terá que passar esse valor
         for(let i=0;i<nivel;i++){   //cria um vetor com numeros aleatórios de 1 até 11 e com tamano de nivel
             let j=Math.abs(Math.floor((Math.random()*10)+2));
@@ -15,6 +14,7 @@
                 bImagem.push(j);
             }
         }
+        cartasViradas=nivel;    //é usada na função fimJogo
         tentativas=nivel;   //cada nível terá quantidade de tentativas equivalente a ele
         duplicarBase(nivel);
     }
@@ -35,7 +35,6 @@
 
     var temp=[];
     function clicou(foto){
-        fimJogo();
         if((temp.length<2)&&(!fimJogo())){
             temp.push(foto);
             virar();
@@ -66,11 +65,14 @@
         }
         temp=[];
         ifoto1.disabled=false;
+        fimJogo();
     }
 
     function fimJogo(){
         if((tentativas<=0)||(cartasViradas==0)){
-            window.alert("Fim de Jogo! Sua pontuação: "+pontos);
+            window.alert("Fim de Jogo! Sua pontuação total: "+pontos);
+            document.location.reload(true);
             return true;
         }
     }
+
