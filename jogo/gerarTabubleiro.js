@@ -64,3 +64,7 @@
         temp=[];
         ifoto1.disabled=false;
     }
+
+    function fimJogo(){
+        
+    }

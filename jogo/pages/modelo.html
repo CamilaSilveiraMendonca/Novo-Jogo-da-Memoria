@@ -6,15 +6,7 @@
     <title>JogoMemória</title>
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-    <!--
-    Breakpoints do bootstrap
-        - xs: <576px (celulares e alguns tablets)
-        - sm: =<767px e =>576px
-        - md: =>768px e =<991px   (maioria dos computadores e notebook)
-        - lg: =>992px e =<1999px (monitores de tv)
-        - xl: => 1200px ()
--->
+<body onload="construirBase(1)">
     <div  class="topo">
         
     </div>
@@ -23,16 +15,16 @@
             <nav id="menu">
                 <ul type="disk">
                     <li>
-                        <a href="">Novo jogo</a>
+                        <a href="modelo.html">Novo jogo</a>
                     </li>
                     <li>
-                        <a href="">Mudar dificuldade</a>
+                        <a href="index.html">Mudar dificuldade</a>
                     </li>
                     <li>
-                        <a href="">Instruções</a>
+                        <a href="instrucoes.html">Instruções</a>
                     </li>
                     <li>
-                        <a href="">Sobre</a>
+                        <a href="sobre.html">Sobre</a>
                     </li>
                 </ul>
             </nav>
@@ -75,8 +67,6 @@
             </tr>
         </table>
     </div>    
-    <button onclick="construirBase(1)" >Jogar</button>
-    <script src="../scripts/gerarTabubleiro.js"></script>
-    <!-- <script src="../scripts/startGame.js"></script>   -->
+    <script src="../gerarTabubleiro.js"></script>
 </body>
 </html>
