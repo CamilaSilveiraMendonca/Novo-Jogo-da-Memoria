@@ -26,7 +26,7 @@ body{
     text-align: center;
 }
 
-div.conteudo input.principal{
+div.conteudo a.principal{
     text-decoration: none;
     color: rgb(15, 199, 231);
     font-family: 'Permanent Marker', cursive;
@@ -36,7 +36,7 @@ div.conteudo input.principal{
     cursor: pointer;    
 }
 
-div.conteudo input.principal:hover {
+div.conteudo a.principal:hover {
     text-decoration: underline; 
     text-shadow: 0px 0px 3px rgba(255, 115, 0, 0.767);
 }

@@ -1,12 +1,12 @@
 
-    var bImagem = [];
-    var vImagem=[];
-    var vAux=[];
+    var bImagem = [];  //vetor que armazena 2 vezes todas as imagens que serão usadas e de forma aleatória   
+    var vAux=[];    //auxilia o vetor bImagem
     var pontos=0,tentativas=0,cartasViradas=0;
+
     function construirBase(nivel){
-        cartasViradas=nivel;
-        nivel = (nivel*4); //quando chamar a função terá q passar esse valor
-        for(let i=0;i<nivel;i++){
+        cartasViradas=nivel;    //é usada na função fimJogo
+        nivel = (nivel*4); //quando chamar a função terá que passar esse valor
+        for(let i=0;i<nivel;i++){   //cria um vetor com numeros aleatórios de 1 até 11 e com tamano de nivel
             let j=Math.abs(Math.floor((Math.random()*10)+2));
             if ((bImagem.indexOf(j)!=-1)||(j>11)){
                 i--;
@@ -15,11 +15,11 @@
                 bImagem.push(j);
             }
         }
-        tentativas=nivel;
+        tentativas=nivel;   //cada nível terá quantidade de tentativas equivalente a ele
         duplicarBase(nivel);
     }
 
-    function duplicarBase(n){
+    function duplicarBase(n){   //duplica bImagem de forma aleatoria para que cada imagem tenha um par
         var i=0;
         while(i<n){
             let j=Math.abs(Math.floor((Math.random()*10)+2));
