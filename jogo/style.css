@@ -75,6 +75,11 @@ nav#menu a:hover{   /**/
     text-shadow: none;
 }
 
+div.game input#tentativas,input#pontos{
+    border: none;
+    background: none;
+}
+
 img{
     position: relative;
     width: 100%;
