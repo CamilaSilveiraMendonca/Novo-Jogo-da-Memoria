@@ -80,7 +80,7 @@
                 document.getElementById('pontos').value=pontos;
             }, 500);      
         }
-        if(foto1!=foto2){
+        else{
             setTimeout(()=>{
                 ifoto1.style.backgroundImage= 'url(../imagens/carta1.png)';
                 ifoto2.style.backgroundImage= 'url(../imagens/carta1.png)';

@@ -2,8 +2,9 @@
     var bImagem = [];  //vetor que armazena 2 vezes todas as imagens que serão usadas e de forma aleatória   
     var vAux=[];    //auxilia o vetor bImagem
     var pontos=0,tentativas=0,cartasViradas=0,metade=0;
+    var temp=[];    //guarda temporariamente as cartas selecionadas em cada rodada
 
-    function construirBase(nivel){
+    function construirBase(nivel){  //cria a base de dados das fotos usadas
         nivel = (nivel*4); //quando chamar a função terá que passar esse valor
         for(let i=0;i<nivel;i++){   //cria um vetor com numeros aleatórios de 1 até 11 e com tamano de nivel
             let j=Math.abs(Math.floor((Math.random()*10)+2));
@@ -21,7 +22,7 @@
     }
 
     function duplicarBase(n){   //duplica bImagem de forma aleatoria para que cada imagem tenha um par
-        var i=0;
+        let i=0;
         while(i<n){
             let j=Math.abs(Math.floor((Math.random()*10)+2));
             if ((bImagem.indexOf(j)!=-1)&&(vAux.indexOf(j)==-1)){
@@ -34,34 +35,32 @@
         document.getElementById('pontos').value=pontos;
     }
         
-    var temp=[];
-    function clicou(foto){
-        temp.push(foto);
-        if((tentativas<=1)||(cartasViradas<=1)){
-            virar();            
-            setTimeout(()=>{
+    function clicou(foto){  //é chamada quando uma carta é clicada
+        if(temp.indexOf(foto)==-1){ //executa somente se a carta selecionada não estiver dentro do vetor temp 
+            temp.push(foto);
+            var fotos=bImagem[foto];    //pega no banco de imagens a foto em que o indice seja o mesmo da carta selecionada
+            var ifotos=document.getElementById(foto);   
+            ifotos.style.backgroundImage= 'url(../imagens/colocar/'+fotos+'.png)';  //mostra a foto
+            if((temp.length==2)&&((tentativas<=1)||(cartasViradas<=1))){
+                verifica();            
                 setTimeout(()=>{
-                    document.getElementById('tentativas').value=tentativas;                    
-                },20);                
-                fimJogo();
-            },1000);
-            
-        }
-        else if (temp.length<=2){ //se trocar o === para <2, ele volta como antes mas no inspecionar mostra erro. Então é bom refatorar.
-            virar();
-           
-        }
+                    setTimeout(()=>{
+                        document.getElementById('tentativas').value=tentativas;                    
+                    },20);                
+                    fimJogo();
+                },1000);         
+            }
+            else if (temp.length==2){  //depois que escolher duas cartas, que será verificado se elas são iguais ou diferentes
+                verifica();         
+            }
+        }        
     }
     
-    
-    function virar(){
+    function verifica(){   //verifica se o par de cartas são iguais ou diferentes
         var foto1=bImagem[temp[0]];
-        var ifoto1=document.getElementById(temp[0]);
-        ifoto1.style.backgroundImage= 'url(../imagens/colocar/'+foto1+'.png)';
-        ifoto1.disabled=true;
         var foto2=bImagem[temp[1]];
+        var ifoto1=document.getElementById(temp[0]);
         var ifoto2=document.getElementById(temp[1]);
-        ifoto2.style.backgroundImage= 'url(../imagens/colocar/'+foto2+'.png)';
         if(foto1==foto2){
             setTimeout( ()=>{
                 pontos+=100;
@@ -71,7 +70,7 @@
                 document.getElementById('pontos').value=pontos;
             }, 500);      
         }
-        if(foto1!=foto2){
+        else{
             setTimeout(()=>{
                 ifoto1.style.backgroundImage= 'url(../imagens/carta1.png)';
                 ifoto2.style.backgroundImage= 'url(../imagens/carta1.png)';
@@ -80,15 +79,14 @@
             },500);
         }
         temp=[];
-        ifoto1.disabled=false;
     }
 
     function fimJogo(){
-        var bonus=0;
+        let bonus=0;
         if(tentativas>=metade){
             bonus=tentativas*200;
             pontos+=bonus;
         }
-        window.alert("Fim de Jogo! Você recebeu um bônus de "+bonus+"\nSua pontuação final: "+pontos);
+        window.alert("Fim de Jogo!\nBônus: "+bonus+"\nSua pontuação final: "+pontos);
         document.location.reload(true);
     }
