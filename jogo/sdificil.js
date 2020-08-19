@@ -1,29 +1,30 @@
 
     var bImagem = [];  //vetor que armazena 2 vezes todas as imagens que serão usadas e de forma aleatória   
     var vAux=[];    //auxilia o vetor bImagem
-    var pontos=0,tentativas=0,cartasViradas=0,metade=0;
+    var pontos=0,tentativas=0,cartasViradas=0;
+    var nivel=0;
+    var vImagem=[];
 
-    function construirBase(nivel){
-        nivel = (nivel*4); //quando chamar a função terá que passar esse valor
+    function construirBase(){
+        nivel = 6; 
         for(let i=0;i<nivel;i++){   //cria um vetor com numeros aleatórios de 1 até 11 e com tamano de nivel
-            let j=Math.abs(Math.floor((Math.random()*10)+2));
-            if ((bImagem.indexOf(j)!=-1)||(j>11)){
+            let j=Math.abs(Math.floor(Math.random()*10));
+            if ((bImagem.indexOf(j)!=-1)||(j>5)){
                 i--;
             }
             else{
                 bImagem.push(j);
             }
         }
-        cartasViradas=nivel;    //é usada na função fimJogo
-        tentativas=nivel+2;   //cada nível terá quantidade de tentativas equivalente a ele
-        metade=tentativas/2;
+        cartasViradas=12;    //é usada na função fimJogo
+        tentativas=14;   //cada nível terá quantidade de tentativas equivalente a ele
         duplicarBase(nivel);
     }
 
     function duplicarBase(n){   //duplica bImagem de forma aleatoria para que cada imagem tenha um par
         var i=0;
         while(i<n){
-            let j=Math.abs(Math.floor((Math.random()*10)+2));
+            let j=Math.abs(Math.floor(Math.random()*10));
             if ((bImagem.indexOf(j)!=-1)&&(vAux.indexOf(j)==-1)){
                 bImagem.push(j);
                 vAux.push(j);
@@ -32,8 +33,16 @@
         }
         document.getElementById('tentativas').value=tentativas;
         document.getElementById('pontos').value=pontos;
+        baseTotal();
     }
-        
+
+    function baseTotal(){
+        for(let posicao = 0;posicao<bImagem.length;posicao++){
+            vImagem[posicao]=bImagem[posicao]+6;
+        }
+        bImagem = bImagem.concat(vImagem);
+    }
+
     var temp=[];
     function clicou(foto){
         temp.push(foto);
@@ -85,10 +94,10 @@
 
     function fimJogo(){
         var bonus=0;
-        if(tentativas>=metade){
+        if(tentativas>=7){
             bonus=tentativas*200;
             pontos+=bonus;
         }
-        window.alert("Fim de Jogo! Você recebeu um bônus de "+bonus+"\nSua pontuação final: "+pontos);
+        window.alert("Fim de Jogo!\nBônus de "+bonus+"\nSua pontuação final: "+pontos);
         document.location.reload(true);
     }
