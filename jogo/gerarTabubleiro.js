@@ -24,7 +24,7 @@
     function duplicarBase(n){   //duplica bImagem de forma aleatoria para que cada imagem tenha um par
         let i=0;
         while(i<n){
-            let j=Math.abs(Math.floor((Math.random()*10)+2));
+            let j=Math.floor((Math.random()*10)+2);
             if ((bImagem.indexOf(j)!=-1)&&(vAux.indexOf(j)==-1)){
                 bImagem.push(j);
                 vAux.push(j);
@@ -88,5 +88,5 @@
             pontos+=bonus;
         }
         window.alert("Fim de Jogo!\nBônus: "+bonus+"\nSua pontuação final: "+pontos);
-        document.location.reload(true);
+        document.location.reload(true);        
     }
